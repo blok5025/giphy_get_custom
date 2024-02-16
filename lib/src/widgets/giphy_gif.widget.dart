@@ -28,6 +28,14 @@ class GiphyGifWidget extends StatefulWidget {
 class _GiphyGifWidgetState extends State<GiphyGifWidget> {
   bool _showMenu = false;
   Timer? _timerMenu;
+  bool isLong = false;
+
+  @override
+  void initState() {
+    super.initState();
+    isLong = double.parse(widget.gif.images!.original!.width) <
+        double.parse(widget.gif.images!.original!.height);
+  }
 
   @override
   void dispose() {
@@ -61,8 +69,12 @@ class _GiphyGifWidgetState extends State<GiphyGifWidget> {
                   });
                 },
                 child: Container(
-                  width: double.parse(widget.gif.images!.fixedWidth.width),
-                  height: double.parse(widget.gif.images!.fixedWidth.height),
+                  width: isLong
+                      ? double.parse(widget.gif.images!.fixedWidth.width)
+                      : double.parse(widget.gif.images!.fixedHeight!.width),
+                  height: isLong
+                      ? double.parse(widget.gif.images!.fixedWidth.height)
+                      : double.parse(widget.gif.images!.fixedHeight!.height),
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
                     borderRadius: widget.borderRadius,
