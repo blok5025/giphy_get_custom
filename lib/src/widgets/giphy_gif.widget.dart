@@ -83,6 +83,7 @@ class _GiphyGifWidgetState extends State<GiphyGifWidget> {
                     isLong
                         ? widget.gif.images!.fixedWidth.url
                         : widget.gif.images!.fixedHeight!.url,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
