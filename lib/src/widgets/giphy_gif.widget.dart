@@ -71,9 +71,9 @@ class _GiphyGifWidgetState extends State<GiphyGifWidget> {
                 child: Container(
                   width: isLong
                       ? double.parse(widget.gif.images!.fixedWidth.width)
-                      : double.parse(widget.gif.images!.fixedHeight!.width),
+                      : double.parse(widget.gif.images!.fixedWidth.height),
                   height: isLong
-                      ? double.parse(widget.gif.images!.fixedWidth.height)
+                      ? double.parse(widget.gif.images!.fixedHeight!.height)
                       : double.parse(widget.gif.images!.fixedHeight!.height),
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
